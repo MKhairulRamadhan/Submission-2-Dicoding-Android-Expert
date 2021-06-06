@@ -1,7 +1,6 @@
 package com.mkhairulramadhan.core.di
 
 import androidx.room.Room
-import com.mkhairulramadhan.core.BuildConfig
 import com.mkhairulramadhan.core.data.GopoxMovieRepository
 import com.mkhairulramadhan.core.data.local.LocalDataSource
 import com.mkhairulramadhan.core.data.local.room.GopoxDatabase

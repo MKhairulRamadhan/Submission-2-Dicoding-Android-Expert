@@ -17,8 +17,6 @@
     <string name="button">Button</string>
     <string name="favorite">Favorite</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="message_cancel">Cancel remove?</string>
-    <string name="message_yes">Yes</string>
     <string name="no_list">Empty favorite, Please like at least 1 Movie</string>
     <string name="no_list_tv">Empty favorite, Please like at least 1 Tv show</string>
     <string name="title_favorite">Favorite</string>

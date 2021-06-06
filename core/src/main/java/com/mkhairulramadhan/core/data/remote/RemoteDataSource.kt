@@ -1,7 +1,6 @@
 package com.mkhairulramadhan.core.data.remote
 
 import android.util.Log
-import com.mkhairulramadhan.core.BuildConfig
 import com.mkhairulramadhan.core.retrofit.ServiceApi
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow

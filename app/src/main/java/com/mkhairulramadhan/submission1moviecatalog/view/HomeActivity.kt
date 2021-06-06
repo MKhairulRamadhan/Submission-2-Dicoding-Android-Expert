@@ -20,6 +20,8 @@ class HomeActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
+
         binding.bnMain.setOnNavigationItemSelectedListener(navigationSelector)
         if(savedInstanceState == null){
             val fragment = MoviesFragment.newInstance()
@@ -73,5 +75,9 @@ class HomeActivity : AppCompatActivity() {
 
     private val namePath: String
         get() = "com.mkhairulramadhan.favorite.view.FavoriteFragment"
+
+    override fun onBackPressed() {
+        super.finishAfterTransition()
+    }
 
 }

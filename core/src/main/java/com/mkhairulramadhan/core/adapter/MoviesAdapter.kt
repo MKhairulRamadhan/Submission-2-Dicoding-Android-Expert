@@ -40,19 +40,17 @@ class MoviesAdapter: RecyclerView.Adapter<MoviesAdapter.ListViewHolder>() {
 
     inner class ListViewHolder(private val binding: ListItemBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(data: MovieModel) {
-            with(binding){
-                Glide.with(itemView.context)
-                        .load("https://image.tmdb.org/t/p/original/${data.posterImage}")
-                        .apply(RequestOptions.placeholderOf(R.drawable.loading_image).error(R.drawable.error_image).override(130,165))
-                        .centerCrop()
-                        .into(binding.imageList)
-                titleList.text = data.title
-                languageList.text = data.language
-                yearList.text = data.year
-                starList.text = data.star
-                synopsisList.text = data.synopsis
-                itemView.setOnClickListener{onItemClickCallback?.onItemClicked(data)}
-            }
+            Glide.with(itemView.context)
+                    .load("https://image.tmdb.org/t/p/original/${data.posterImage}")
+                    .apply(RequestOptions.placeholderOf(R.drawable.loading_image).error(R.drawable.error_image).override(130,165))
+                    .centerCrop()
+                    .into(binding.imageList)
+            binding.titleList.text = data.title
+            binding.languageList.text = data.language
+            binding.yearList.text = data.year
+            binding.starList.text = data.star
+            binding.synopsisList.text = data.synopsis
+            itemView.setOnClickListener{onItemClickCallback?.onItemClicked(data)}
         }
     }
 }
