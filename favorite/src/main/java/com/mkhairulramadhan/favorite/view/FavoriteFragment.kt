@@ -9,6 +9,7 @@ import com.mkhairulramadhan.favorite.adapter.PagerAdapter
 import com.mkhairulramadhan.favorite.di.favoriteModule
 import com.mkhairulramadhan.submission1moviecatalog.databinding.FragmentFavoriteBinding
 import org.koin.core.context.loadKoinModules
+import org.koin.core.context.unloadKoinModules
 
 class FavoriteFragment : Fragment() {
     private lateinit var binding: FragmentFavoriteBinding
@@ -29,6 +30,11 @@ class FavoriteFragment : Fragment() {
         )
         binding.viewPager.adapter = pagerAdapter
         binding.tabs.setupWithViewPager(binding.viewPager)
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        unloadKoinModules(favoriteModule)
     }
 
 }

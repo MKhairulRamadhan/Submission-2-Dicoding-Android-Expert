@@ -146,7 +146,7 @@ class DetailMovieTvActivity : AppCompatActivity() {
 
     override fun onDestroy() {
         super.onDestroy()
-        Glide.get(this).clearMemory();
+        Glide.get(this).clearMemory()
     }
 
 }

@@ -21,9 +21,6 @@ import org.koin.android.viewmodel.ext.android.viewModel
 
 class TvShowFragment : Fragment() {
 
-    companion object{
-        const val TYPE_TV = "type_tv"
-    }
     private var _binding: FragmentTvShowBinding? = null
     private val binding get() = _binding!!
     private val viewModel: MovieTvViewModel by viewModel()
@@ -79,6 +76,10 @@ class TvShowFragment : Fragment() {
                 selectedTv(data)
             }
         })
+    }
+
+    companion object{
+        const val TYPE_TV = "type_tv"
     }
 
 }
