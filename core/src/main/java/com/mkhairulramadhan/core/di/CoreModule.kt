@@ -8,6 +8,8 @@ import com.mkhairulramadhan.core.data.remote.RemoteDataSource
 import com.mkhairulramadhan.core.domain.repository.IGopoxMovieRepository
 import com.mkhairulramadhan.core.retrofit.ServiceApi
 import com.mkhairulramadhan.core.utils.ExecutorApp
+import net.sqlcipher.database.SQLiteDatabase
+import net.sqlcipher.database.SupportFactory
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.android.ext.koin.androidContext
@@ -19,10 +21,13 @@ import java.util.concurrent.TimeUnit
 val databaseModule = module {
     factory { get<GopoxDatabase>().gopoxDao() }
     single {
+        //encryption
+        val passphrase: ByteArray = SQLiteDatabase.getBytes("mkhairulramadhan".toCharArray())
+        val factory = SupportFactory(passphrase)
         Room.databaseBuilder(
             androidContext(),
             GopoxDatabase::class.java, "GopoxMovie.db"
-        ).fallbackToDestructiveMigration().build()
+        ).fallbackToDestructiveMigration().openHelperFactory(factory).build()
     }
 }
 
