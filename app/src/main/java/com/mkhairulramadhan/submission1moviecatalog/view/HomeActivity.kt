@@ -42,7 +42,7 @@ class HomeActivity : AppCompatActivity() {
                 return@OnNavigationItemSelectedListener true
             }
             R.id.nav_fav -> {
-                goFavoriteFragment()
+                moveToFavoriteFragment()
                 return@OnNavigationItemSelectedListener true
             }
         }
@@ -57,27 +57,24 @@ class HomeActivity : AppCompatActivity() {
             .commit()
     }
 
-    private fun goFavoriteFragment() {
-        val fragment = instantiateFavoriteFragment(namePath)
+    override fun onBackPressed() {
+        super.finishAfterTransition()
+    }
+
+    private fun moveToFavoriteFragment() {
+        val fragment = instantiateFragment()
         if (fragment != null) {
             addFragment(fragment)
         }
     }
 
-    private fun instantiateFavoriteFragment(className: String): Fragment? {
+    private fun instantiateFragment(): Fragment? {
         return try {
-            Class.forName(className).newInstance() as Fragment
+            Class.forName("com.mkhairulramadhan.favorite.view.FavoriteFragment").newInstance() as Fragment
         } catch (e: Exception) {
             Toast.makeText(this, "Module not found", Toast.LENGTH_SHORT).show()
             null
         }
-    }
-
-    private val namePath: String
-        get() = "com.mkhairulramadhan.favorite.view.FavoriteFragment"
-
-    override fun onBackPressed() {
-        super.finishAfterTransition()
     }
 
 }

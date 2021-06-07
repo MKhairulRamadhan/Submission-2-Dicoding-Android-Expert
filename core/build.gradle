@@ -25,9 +25,11 @@ android {
         debug{
             buildConfigField 'String', 'API_TOKEN', "\"6d3b5d87fff90c4cd594da0e61974684\""
             buildConfigField 'String', 'BASE_API', "\"https://api.themoviedb.org/3/\""
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
